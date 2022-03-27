@@ -50,6 +50,8 @@ builder.Services.AddDbContext<AppDbContext>(s =>
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(b => b.RegisterModule(new RepoServiceModule()));
 
+builder.Services.AddMemoryCache();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
